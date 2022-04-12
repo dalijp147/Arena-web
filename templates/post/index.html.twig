@@ -1,0 +1,47 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Post index{% endblock %}
+
+{% block body %}
+    <h1>Post index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+               
+                <th>Titre</th>
+                <th>Auteur</th>
+                <th>image</th>
+                <th>date</th>
+                <th>Rate</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for post in posts %}
+            <tr>
+              
+                <td>{{ post.titre }}</td>
+                <td>{{ post.auteur }}</td>
+         
+                <td><img src="{{ asset('uploads/' ~ post.imgPost) }}"
+                alt="" width="100" height="100">
+                </td>
+                <td>{{ post.datePost }}</td>
+                <td>{{ post.rate }}</td>
+                <td>
+                    <a href="{{ path('app_post_show', {'idPost': post.idPost}) }}">show</a>
+                    <a href="{{ path('app_post_edit', {'idPost': post.idPost}) }}">edit</a>
+                      <a href="{{ path('app_post_delete', {'idPost': post.idPost}) }}">delete</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_post_new') }}">Create new</a>
+{% endblock %}

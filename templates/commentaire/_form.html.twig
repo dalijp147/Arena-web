@@ -1,0 +1,62 @@
+{#
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
+#}
+
+<main id="main" class="main">
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h1 class="card-title">Ajouter un Jeux</h1>
+                        {{ form_start(form,{'attr': {'novalidate': 'novalidate'}}) }}
+
+                        <table >
+                            <tr>
+                                <td>
+                                    {{ form_label(form.descCom,"description : ") }}
+                                </td><td>
+                                    {{ form_widget(form.descCom) }}
+                                </td>
+                                <td>{{ form_errors(form.descCom) }}</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    {{ form_label(form.dateCom,"auteur : ") }}
+                                </td><td>
+                                    {{ form_widget(form.dateCom) }}
+                                </td>
+                                <td>{{ form_errors(form.dateCom) }}</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    {{ form_label(form.idPost,"post : ") }}
+                                </td><td>
+                                    {{ form_widget(form.idPost) }}
+                                </td>
+                                <td>{{ form_errors(form.idPost) }}</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    {{ form_label(form.idUser,"nom : ") }}
+                                </td><td>
+                                    {{ form_widget(form.idUser) }}
+                                </td>
+                                <td>{{ form_errors(form.idUser) }}</td>
+                            </tr>
+                        </table>
+                       
+                       
+                         <button class="btn btn-primary">{{ button_label|default('Save') }}</button> 
+                         {{ form_end(form) }} 
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+</main><!-- End #main -->

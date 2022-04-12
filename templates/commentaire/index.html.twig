@@ -1,0 +1,42 @@
+{% extends 'base-admin.html.twig' %}
+
+{% block title %}Commentaire table{% endblock %}
+
+{% block body %}
+    <h1>table Commentaire </h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+              
+                <th>description</th>
+                <th>date</th>
+                <th>IdPost</th>
+                <th>nom </th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for commentaire in commentaires %}
+            <tr>
+              
+                <td>{{ commentaire.descCom }}</td>
+                <td>{{ commentaire.dateCom }}</td>
+                <td>{{ commentaire.idPost }}</td>
+                <td>{{ commentaire.idUser }}</td>
+                <td>
+                <a href="{{ path('app_commentaire_show', {'idCom': commentaire.idCom}) }}">show</a>
+                <a href="{{ path('app_commentaire_edit', {'idCom': commentaire.idCom}) }}">edit</a>
+                <a href="{{ path('app_commentaire_delete', {'idCom': commentaire.idCom}) }}">delete</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_commentaire_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,71 @@
+{#
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
+#}
+<main id="main" class="main">
+    <section class="section">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h1 class="card-title">Ajouter un Jeux</h1>
+                        {{ form_start(form,{'attr': {'novalidate': 'novalidate'}}) }}
+
+                        <table >
+                            <tr>
+                                <td>
+                                    {{ form_label(form.titre,"Titre : ") }}
+                                </td><td>
+                                    {{ form_widget(form.titre) }}
+                                </td>
+                                <td>{{ form_errors(form.titre,{'attr':{'class':'text-danger'}}) }}</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    {{ form_label(form.auteur,"auteur : ") }}
+                                </td><td>
+                                    {{ form_widget(form.auteur) }}
+                                </td>
+                                <td>{{ form_errors(form.auteur,{'attr':{'class':'text-danger'}}) }}</td>
+                            </tr>
+                         
+                            <tr>
+                                <td>
+                                    {{ form_label(form.imgpost,"image : ") }}
+                                </td><td>
+                                    {{ form_widget(form.imgpost) }}
+                                </td>
+                                <td>{{ form_errors(form.imgpost) }}</td>
+                            </tr>
+                             <tr>
+                                <td>
+                                    {{ form_label(form.datepost,"date : ") }}
+                                </td><td>
+                                    {{ form_widget(form.datepost) }}
+                                </td>
+                                <td>{{ form_errors(form.datepost,{'attr':{'class':'text-danger'}}) }}</td>
+                            </tr>
+                              <tr>
+                                <td>
+                                    {{ form_label(form.rate,"rate : ") }}
+                                </td><td>
+                                    {{ form_widget(form.rate) }}
+                                </td>
+                                <td>{{ form_errors(form.rate,{'attr':{'class':'text-danger'}}) }}</td>
+                            </tr>
+
+                           
+                        </table>
+                        <button class="btn btn-primary">{{ button_label|default('Save') }}</button>
+                        {{ form_end(form) }} 
+                        
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+</main><!-- End #main -->
